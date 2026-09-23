@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Carregando...</title>
+  <meta name="description" content="">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link id="google-fonts" rel="stylesheet" href="">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header" id="header" data-section="header">
+    <div class="container header__inner">
+      <a href="#" class="header__logo" aria-label="Início">
+        <img src="" alt="" class="header__logo-img" id="header-logo">
+        <span class="header__logo-text" id="header-logo-text"></span>
+      </a>
+      <nav class="header__nav" id="header-nav" aria-label="Menu principal"></nav>
+      <div class="header__actions">
+        <a href="#" class="btn btn--sm btn--whatsapp header__cta" id="header-whatsapp" data-whatsapp-context="header">
+          WhatsApp
+        </a>
+        <button class="header__menu-btn" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile (fora do header para não vazar no layout) -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true"></div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile" aria-hidden="true"></nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero" data-section="hero">
+      <div class="hero__bg">
+        <picture>
+          <source media="(max-width: 768px)" srcset="" id="hero-img-mobile">
+          <img src="" alt="" class="hero__img" id="hero-img" fetchpriority="high">
+        </picture>
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="hero__center">
+      <div class="container hero__content">
+        <div class="hero__badges" id="hero-badges"></div>
+        <h1 class="hero__title" id="hero-title"></h1>
+        <p class="hero__subtitle" id="hero-subtitle"></p>
+
+        <div class="hero-cta-card hidden" id="hero-cta-card">
+          <div class="hero-cta-card__glow" aria-hidden="true"></div>
+          <p class="hero-cta-card__eyebrow" id="hero-cta-eyebrow">Reserve agora</p>
+          <h2 class="hero-cta-card__title" id="hero-cta-title">Garanta sua estadia</h2>
+          <p class="hero-cta-card__subtitle" id="hero-cta-subtitle">
+            Finalize a reserva e o pagamento com segurança.
+          </p>
+          <button type="button" class="btn btn--lg btn--booking hero-cta-card__btn" id="hero-cta-button">
+            Reservar agora
+          </button>
+        </div>
+
+        <div class="hero__ctas">
+          <a href="#" class="btn btn--lg btn--whatsapp" id="hero-cta" data-whatsapp-context="hero"></a>
+          <a href="#" class="btn btn--lg btn--outline" id="hero-phone-cta"></a>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust-bar" id="trust-bar" data-section="trustBar">
+      <div class="container">
+        <div class="trust-bar__grid" id="trust-bar-content"></div>
+      </div>
+    </section>
+
+    <!-- QUARTOS / SUÍTES -->
+    <section class="section rooms" id="quartos" data-section="rooms">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" id="rooms-title">Nossos Quartos</h2>
+          <p class="section__subtitle" id="rooms-subtitle">Escolha a acomodação ideal para sua estadia</p>
+        </div>
+        <div class="rooms__grid" id="rooms-grid"></div>
+      </div>
+    </section>
+
+    <!-- COMODIDADES -->
+    <section class="section amenities" id="comodidades" data-section="amenities">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Comodidades</h2>
+          <p class="section__subtitle">Tudo para uma estadia confortável</p>
+        </div>
+        <div class="amenities__grid" id="amenities-grid"></div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="section about" id="sobre" data-section="about">
+      <div class="container about__inner">
+        <div class="about__image-wrap">
+          <img src="" alt="" class="about__image" id="about-image" loading="lazy">
+        </div>
+        <div class="about__content">
+          <h2 class="section__title" id="about-title"></h2>
+          <div class="about__text" id="about-text"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GASTRONOMIA -->
+    <section class="section gastronomy" id="gastronomia" data-section="gastronomy">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" id="gastronomy-title">Gastronomia</h2>
+          <p class="section__subtitle" id="gastronomy-subtitle"></p>
+        </div>
+        <div class="gastronomy__feature" id="gastronomy-feature"></div>
+        <div class="gastronomy__grid" id="gastronomy-grid"></div>
+      </div>
+    </section>
+
+    <!-- DECORAÇÕES -->
+    <section class="section decorations" id="decoracoes" data-section="decorations">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" id="decorations-title">Decorações</h2>
+          <p class="section__subtitle" id="decorations-subtitle"></p>
+        </div>
+        <p class="decorations__intro" id="decorations-description"></p>
+        <div class="decorations__grid" id="decorations-grid"></div>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="section gallery" id="galeria" data-section="gallery">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" id="gallery-title">Galeria</h2>
+        </div>
+        <div class="gallery__grid" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- PROMOÇÕES / VANTAGENS -->
+    <section class="section promotions" id="promocoes" data-section="promotions">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" id="promotions-title">Promoções</h2>
+        </div>
+        <div class="promotions__grid" id="promotions-grid"></div>
+      </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO -->
+    <section class="section location" id="localizacao" data-section="location">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" id="location-title">Localização</h2>
+          <p class="section__subtitle" id="location-description"></p>
+        </div>
+        <div class="location__inner">
+          <div class="location__map" id="location-map"></div>
+          <div class="location__info">
+            <address class="location__address" id="location-address"></address>
+            <ul class="location__nearby" id="location-nearby"></ul>
+            <div class="location__actions">
+              <a href="#" class="btn btn--primary" id="location-directions" target="_blank" rel="noopener">
+                Como chegar
+              </a>
+              <a href="#" class="btn btn--uber hidden" id="location-uber" target="_blank" rel="noopener">
+                Ir de Uber
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVALIAÇÕES -->
+    <section class="section reviews" id="avaliacoes" data-section="reviews">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" id="reviews-title">Avaliações</h2>
+        </div>
+        <div class="reviews__grid" id="reviews-grid"></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq" data-section="faq">
+      <div class="container container--narrow">
+        <div class="section__header">
+          <h2 class="section__title" id="faq-title">Perguntas frequentes</h2>
+        </div>
+        <div class="faq__list" id="faq-list"></div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final" id="contato" data-section="ctaFinal">
+      <div class="cta-final__bg">
+        <img src="" alt="" class="cta-final__img" id="cta-final-bg" loading="lazy">
+        <div class="cta-final__overlay"></div>
+      </div>
+      <div class="container cta-final__content">
+        <h2 class="cta-final__title" id="cta-final-title"></h2>
+        <p class="cta-final__subtitle" id="cta-final-subtitle"></p>
+        <div class="cta-final__actions">
+          <a href="#" class="btn btn--lg btn--whatsapp" id="cta-final-whatsapp" data-whatsapp-context="footer"></a>
+          <a href="#" class="btn btn--lg btn--outline-light" id="cta-final-phone"></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer" data-section="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="" alt="" class="footer__logo" id="footer-logo">
+          <p class="footer__tagline" id="footer-tagline"></p>
+        </div>
+        <div class="footer__contact">
+          <h3 class="footer__heading">Contato</h3>
+          <ul class="footer__list" id="footer-contact"></ul>
+        </div>
+        <div class="footer__hours">
+          <h3 class="footer__heading">Horários</h3>
+          <ul class="footer__list" id="footer-hours"></ul>
+        </div>
+        <div class="footer__social" id="footer-social-wrap">
+          <h3 class="footer__heading">Redes sociais</h3>
+          <div class="footer__social-links" id="footer-social"></div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span id="footer-year"></span> <span id="footer-name"></span>. Todos os direitos reservados.</p>
+        <p class="footer__powered">Desenvolvido por <a href="#" rel="noopener">Tapir LP</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <a href="#" class="whatsapp-float" id="whatsapp-float" aria-label="Falar no WhatsApp" data-whatsapp-context="float">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.884 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-float__text" id="whatsapp-float-text">WhatsApp</span>
+  </a>
+
+  <!-- STICKY BAR MOBILE (desativado — usar apenas botão flutuante) -->
+  <div class="sticky-bar hidden" id="sticky-bar" aria-hidden="true">
+    <a href="#" class="btn btn--whatsapp btn--block" id="sticky-whatsapp" data-whatsapp-context="sticky">
+      Reservar pelo WhatsApp
+    </a>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+    <button class="lightbox__close" id="lightbox-close" aria-label="Fechar">&times;</button>
+    <img src="" alt="" class="lightbox__img" id="lightbox-img">
+  </div>
+
+  <!-- REDIRECIONAMENTO TAPIR BOOKING -->
+  <div class="booking-redirect" id="booking-redirect-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="booking-redirect-title">
+    <div class="booking-redirect__dialog">
+      <button type="button" class="booking-redirect__close" id="booking-redirect-close" aria-label="Fechar">&times;</button>
+      <div class="booking-redirect__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+      </div>
+      <h2 class="booking-redirect__title" id="booking-redirect-title">Redirecionamento para reserva</h2>
+      <p class="booking-redirect__message" id="booking-redirect-message">
+        Você será direcionado ao domínio da Tapir (Tapir Booking) para concluir a reserva e o pagamento.
+      </p>
+      <p class="booking-redirect__domain">Destino: <strong id="booking-redirect-domain">tapirbooking.com.br</strong></p>
+      <div class="booking-redirect__actions">
+        <button type="button" class="btn btn--outline" id="booking-redirect-cancel">Cancelar</button>
+        <button type="button" class="btn btn--booking" id="booking-redirect-confirm">Continuar para o Tapir Booking</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/icons.js"></script>
+  <script>window.HOTEL_CONFIG = {"meta":{"slug":"extasy-cabula","language":"pt-BR","version":"1.0.0"},"hotel":{"name":"Hotel Extasy Cabula","tagline":"Prazer ao extremo no Cabula","city":"Salvador","state":"BA","neighborhood":"Cabula","address":"Estrada das Barreiras, 516 - Cabula","zipCode":"41150-000","phone":"(71) 3387-0373","whatsapp":"557133870373","email":"","website":"","instagram":"","facebook":"","logo":"assets/images/logo.png","logoAlt":"Hotel Extasy Cabula","favicon":"assets/images/favicon.png","type":"motel","stars":0,"checkIn":"Sob consulta","checkOut":"Conforme período","receptionHours":"24 horas"},"theme":{"primary":"#1A3A6B","secondary":"#0F2447","accent":"#E85A1A","background":"#F3F6FA","surface":"#FFFFFF","text":"#142033","textMuted":"#5A6B7D","heroOverlay":"rgba(15, 36, 71, 0.62)","fontHeading":"Montserrat","fontBody":"Montserrat","borderRadius":"md","buttonStyle":"pill","sectionBand":true},"seo":{"title":"Hotel Extasy Cabula — Motel em Salvador, BA | Reserve pelo Tapir Booking","description":"Hotel Extasy Cabula na Estrada das Barreiras, Salvador. Suítes Luxo, Garagem e VIP. A partir de R$ 70. Reserve pelo Tapir Booking.","keywords":["hotel extasy cabula","motel cabula salvador","motel estrada das barreiras","suíte vip cabula","suíte garagem cabula","motel salvador ba","extasy hotel salvador"],"ogImage":"assets/images/og-image.jpg","canonicalUrl":""},"hero":{"title":"Hotel Extasy Cabula","subtitle":"Suítes Luxo, Garagem e VIP no Cabula — Wi-Fi, discrição e ótimo custo-benefício. Reserve pelo Tapir Booking.","image":"assets/images/hero.jpg","imageMobile":"assets/images/hero-mobile.jpg","cta":{"text":"Reservar agora","style":"booking"},"badges":["Recepção 24h","Wi-Fi grátis","Luxo · Garagem · VIP","Garagem privativa"],"ctaCard":{"enabled":true,"eyebrow":"Reserve agora","title":"Garanta sua suíte no Tapir Booking","subtitle":"Escolha a acomodação, finalize a reserva e pague com segurança.","buttonText":"Reservar agora","hideLegacyCtas":true}},"trustBar":{"enabled":true,"googleRating":0,"googleReviewsCount":0,"highlights":[{"icon":"wifi","label":"Wi-Fi nas suítes"},{"icon":"parking","label":"Garagem privativa"},{"icon":"clock","label":"Recepção 24h"},{"icon":"ac","label":"Ar-condicionado"},{"icon":"star","label":"3 categorias"}]},"roomsSection":{"title":"Nossas suítes","subtitle":"Escolha a categoria ideal para o seu momento"},"rooms":[{"id":"vip","name":"VIP","description":"A suíte mais completa do Extasy Cabula — ambiente diferenciado para um momento especial.","photos":["assets/images/rooms/vip-1.jpg","assets/images/rooms/vip-2.jpg","assets/images/rooms/vip-3.jpg","assets/images/rooms/vip-4.jpg","assets/images/rooms/vip-5.jpg","assets/images/rooms/vip-6.jpg"],"capacity":{"adults":2,"children":0},"bedType":"Casal","sizeM2":0,"amenities":["wi-fi","TV","som","ar-condicionado"],"priceFrom":110,"priceLabel":"a partir de","currency":"BRL","featured":true,"ctaText":"Reservar VIP"},{"id":"garagem","name":"Garagem","description":"Garagem Privativa — discrição e praticidade com entrada direta para a suíte.","photos":["assets/images/rooms/garagem-1.jpg","assets/images/rooms/garagem-2.jpg","assets/images/rooms/garagem-3.jpg","assets/images/rooms/garagem-4.jpg","assets/images/rooms/garagem-5.jpg","assets/images/rooms/garagem-6.jpg"],"capacity":{"adults":2,"children":0},"bedType":"Casal","sizeM2":0,"amenities":["garagem privativa","wi-fi","TV","som"],"priceFrom":80,"priceLabel":"a partir de","currency":"BRL","featured":true,"ctaText":"Reservar Garagem"},{"id":"luxo","name":"Luxo","description":"Conforto e ótimo custo-benefício para o seu momento no Cabula.","photos":["assets/images/rooms/luxo-1.jpg","assets/images/rooms/luxo-2.jpg","assets/images/rooms/luxo-3.jpg","assets/images/rooms/luxo-4.jpg","assets/images/rooms/luxo-5.jpg"],"capacity":{"adults":2,"children":0},"bedType":"Casal","sizeM2":0,"amenities":["wi-fi","TV","som","saleta"],"priceFrom":70,"priceLabel":"a partir de","currency":"BRL","featured":true,"ctaText":"Reservar Luxo"}],"amenities":[{"id":"wifi","icon":"wifi","label":"Wi-Fi nas suítes","enabled":true},{"id":"parking","icon":"parking","label":"Garagem privativa","enabled":true},{"id":"ac","icon":"ac","label":"Ar-condicionado","enabled":true},{"id":"tv","icon":"star","label":"TV com canal erótico","enabled":true},{"id":"reception","icon":"clock","label":"Recepção 24h","enabled":true},{"id":"sound","icon":"service","label":"Som nas suítes","enabled":true},{"id":"location","icon":"map","label":"Localização no Cabula","enabled":true}],"about":{"enabled":true,"title":"Sobre o Hotel Extasy Cabula","text":"Localizado na Estrada das Barreiras, no Cabula, o Hotel Extasy oferece três categorias de suítes — Luxo, Garagem e VIP — com internet Wi-Fi, TV e discrição.\n\nA Suíte Garagem conta com garagem privativa. A VIP é a opção mais completa. A Luxo une conforto e ótimo custo-benefício.","image":"assets/images/about.jpg"},"gallery":{"enabled":true,"title":"Galeria","images":[{"src":"assets/images/gallery/08-fachada.jpg","alt":"Fachada do Hotel Extasy Cabula","category":"hotel"},{"src":"assets/images/gallery/04-entrada.jpg","alt":"Entrada e área externa","category":"areas"},{"src":"assets/images/gallery/01-suite-garagem.jpg","alt":"Suíte Garagem","category":"suites"},{"src":"assets/images/gallery/02-suite-interior.jpg","alt":"Interior da suíte","category":"suites"},{"src":"assets/images/gallery/07-vip-suite.jpg","alt":"Suíte VIP","category":"suites"},{"src":"assets/images/gallery/06-vip-hidro.jpg","alt":"Suíte VIP","category":"suites"},{"src":"assets/images/gallery/03-suite-tv.jpg","alt":"Suíte com TV","category":"suites"},{"src":"assets/images/gallery/05-minibar.jpg","alt":"Amenities","category":"areas"}]},"promotions":{"enabled":false,"title":"Suítes e valores","items":[{"id":"luxo","title":"Luxo","description":"A partir de R$ 70,00. Confirme períodos e disponibilidade no Tapir Booking.","discount":"R$ 70","enabled":true},{"id":"garagem","title":"Garagem — Garagem Privativa","description":"A partir de R$ 80,00. Entrada discreta com garagem privativa.","discount":"R$ 80","enabled":true},{"id":"vip","title":"VIP","description":"A partir de R$ 110,00. A suíte mais completa do Extasy Cabula.","discount":"R$ 110","enabled":true}]},"location":{"enabled":true,"title":"Localização","description":"Na Estrada das Barreiras, Cabula — Salvador/BA. Fácil acesso e localização estratégica.","lat":-12.9665,"lng":-38.4768,"googleMapsUrl":"https://www.google.com/maps/search/?api=1&query=Estrada+das+Barreiras+516+Cabula+Salvador+BA","uber":{"enabled":true,"label":"Ir de Uber","address":"Estrada das Barreiras, 516 - Cabula, Salvador - BA"},"nearby":[{"name":"Cabula","distance":"no bairro","icon":"map"},{"name":"Estrada das Barreiras","distance":"na via","icon":"map"},{"name":"Centro de Salvador","distance":"região","icon":"map"}]},"reviews":{"enabled":false,"title":"Avaliações dos hóspedes","items":[]},"faq":{"enabled":true,"title":"Perguntas frequentes","items":[{"question":"Como faço uma reserva?","answer":"Pelo Tapir Booking nesta página — escolha a suíte, finalize e pague com segurança. Dúvidas: WhatsApp ou telefone (71) 3387-0373."},{"question":"Quais suítes estão disponíveis?","answer":"Três categorias: Luxo (a partir de R$ 70), Garagem — Garagem Privativa (a partir de R$ 80) e VIP (a partir de R$ 110)."},{"question":"Quais os períodos e valores?","answer":"Luxo a partir de R$ 70, Garagem a partir de R$ 80 e VIP a partir de R$ 110. Confirme períodos e disponibilidade no Tapir Booking."},{"question":"Tem Wi-Fi e garagem?","answer":"Sim. As suítes possuem internet Wi-Fi. A categoria Garagem oferece garagem privativa."},{"question":"Onde fica o motel?","answer":"Estrada das Barreiras, 516 — Cabula, Salvador/BA."}]},"ctaFinal":{"enabled":true,"title":"Reserve sua suíte no Extasy Cabula","subtitle":"Reserve pelo Tapir Booking e garanta sua suíte com pagamento seguro.","backgroundImage":"assets/images/cta-bg.jpg","primaryCta":"Reservar no Tapir Booking","showPhone":true},"booking":{"enabled":true,"url":"https://www.tapirbooking.com.br/extasycabula/","dialog":{"title":"Redirecionamento para reserva","message":"Você será direcionado ao domínio da Tapir (Tapir Booking) para concluir a reserva e realizar o pagamento com segurança.","confirmText":"Continuar para o Tapir Booking","cancelText":"Cancelar","domainHint":"tapirbooking.com.br"}},"whatsapp":{"number":"557133870373","showFloatingButton":true,"floatingButtonText":"WhatsApp","stickyMobileBar":false,"messages":{"hero":"Olá! Gostaria de consultar disponibilidade no Hotel Extasy Cabula (Estrada das Barreiras).","booking":"Olá! Gostaria de fazer uma reserva no {{hotel.name}}:\n\n📋 Suíte: {{booking.roomType}}\n📅 Entrada: {{booking.checkIn}}\n📅 Saída: {{booking.checkOut}}\n👥 Hóspedes: {{booking.guests}}\n\nPoderia confirmar disponibilidade e valores?","room":"Olá! Tenho interesse na {{room.name}} do Hotel Extasy Cabula. Poderia informar disponibilidade e valores?","promotion":"Olá! Vi os valores no site do Hotel Extasy Cabula e gostaria de confirmar disponibilidade.","footer":"Olá! Vim pelo site do Hotel Extasy Cabula e gostaria de mais informações.","general":"Olá! Gostaria de informações sobre o Hotel Extasy Cabula."}},"sections":{"header":true,"hero":true,"trustBar":true,"rooms":true,"amenities":true,"about":true,"gastronomy":false,"decorations":false,"gallery":true,"promotions":false,"location":true,"reviews":false,"faq":true,"ctaFinal":true,"footer":true},"analytics":{"googleAnalyticsId":"","googleTagManagerId":"","facebookPixelId":""},"navigation":[{"label":"Suítes","href":"#quartos","enabled":true},{"label":"O Hotel","href":"#sobre","enabled":true},{"label":"Galeria","href":"#galeria","enabled":true},{"label":"Valores","href":"#promocoes","enabled":false},{"label":"Localização","href":"#localizacao","enabled":true},{"label":"Contato","href":"#contato","enabled":true}]};</script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/tapir-booking.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
