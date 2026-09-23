@@ -43,8 +43,8 @@
     "sectionBand": true
   },
   "seo": {
-    "title": "Hotel Extasy Cabula — Motel em Salvador, BA | Reserve pelo Tapir Booking",
-    "description": "Hotel Extasy Cabula na Estrada das Barreiras, Salvador. Suítes Luxo, Garagem e VIP. A partir de R$ 70. Reserve pelo Tapir Booking.",
+    "title": "Hotel Extasy Cabula — Motel em Salvador, BA | Reservas",
+    "description": "Hotel Extasy Cabula na Estrada das Barreiras, Salvador. Suítes Luxo, Garagem e VIP. A partir de R$ 70. Reserve online com segurança.",
     "keywords": [
       "hotel extasy cabula",
       "motel cabula salvador",
@@ -59,7 +59,7 @@
   },
   "hero": {
     "title": "Hotel Extasy Cabula",
-    "subtitle": "Suítes Luxo, Garagem e VIP no Cabula — Wi-Fi, discrição e ótimo custo-benefício. Reserve pelo Tapir Booking.",
+    "subtitle": "Suítes Luxo, Garagem e VIP no Cabula — Wi-Fi, discrição e ótimo custo-benefício.",
     "image": "assets/images/hero.jpg",
     "imageMobile": "assets/images/hero-mobile.jpg",
     "cta": {
@@ -75,7 +75,7 @@
     "ctaCard": {
       "enabled": true,
       "eyebrow": "Reserve agora",
-      "title": "Garanta sua suíte no Tapir Booking",
+      "title": "Garanta sua suíte",
       "subtitle": "Escolha a acomodação, finalize a reserva e pague com segurança.",
       "buttonText": "Reservar agora",
       "hideLegacyCtas": true
@@ -306,7 +306,7 @@
       {
         "id": "luxo",
         "title": "Luxo",
-        "description": "A partir de R$ 70,00. Confirme períodos e disponibilidade no Tapir Booking.",
+        "description": "A partir de R$ 70,00. Confirme períodos e disponibilidade na reserva online.",
         "discount": "R$ 70",
         "enabled": true
       },
@@ -367,7 +367,7 @@
     "items": [
       {
         "question": "Como faço uma reserva?",
-        "answer": "Pelo Tapir Booking nesta página — escolha a suíte, finalize e pague com segurança. Dúvidas: WhatsApp ou telefone (71) 3387-0373."
+        "answer": "Pelo botão Reservar nesta página — escolha a suíte, finalize e pague com segurança. Dúvidas: WhatsApp ou telefone (71) 3387-0373."
       },
       {
         "question": "Quais suítes estão disponíveis?",
@@ -375,7 +375,7 @@
       },
       {
         "question": "Quais os períodos e valores?",
-        "answer": "Luxo a partir de R$ 70, Garagem a partir de R$ 80 e VIP a partir de R$ 110. Confirme períodos e disponibilidade no Tapir Booking."
+        "answer": "Luxo a partir de R$ 70, Garagem a partir de R$ 80 e VIP a partir de R$ 110. Confirme períodos e disponibilidade na reserva online."
       },
       {
         "question": "Tem Wi-Fi e garagem?",
@@ -390,9 +390,9 @@
   "ctaFinal": {
     "enabled": true,
     "title": "Reserve sua suíte no Extasy Cabula",
-    "subtitle": "Reserve pelo Tapir Booking e garanta sua suíte com pagamento seguro.",
+    "subtitle": "Reserve online e garanta sua suíte com pagamento seguro.",
     "backgroundImage": "assets/images/cta-bg.jpg",
-    "primaryCta": "Reservar no Tapir Booking",
+    "primaryCta": "Reservar agora",
     "showPhone": true
   },
   "booking": {
@@ -400,8 +400,8 @@
     "url": "https://www.tapirbooking.com.br/extasycabula/",
     "dialog": {
       "title": "Redirecionamento para reserva",
-      "message": "Você será direcionado ao domínio da Tapir (Tapir Booking) para concluir a reserva e realizar o pagamento com segurança.",
-      "confirmText": "Continuar para o Tapir Booking",
+      "message": "Você será direcionado para concluir a reserva e realizar o pagamento com segurança.",
+      "confirmText": "Continuar para reservar",
       "cancelText": "Cancelar",
       "domainHint": "tapirbooking.com.br"
     }
