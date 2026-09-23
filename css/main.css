@@ -1387,6 +1387,7 @@ body.menu-open .header {
 .location__inner {
   display: grid;
   gap: var(--space-8);
+  align-items: stretch;
 }
 
 @media (min-width: 768px) {
@@ -1407,6 +1408,12 @@ body.menu-open .header {
   border: 0;
 }
 
+.location__info {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
 .location__address {
   font-size: var(--text-lg);
   margin-bottom: var(--space-6);
@@ -1415,17 +1422,12 @@ body.menu-open .header {
 
 .location__nearby { margin-bottom: var(--space-6); }
 
+.location__nearby.hidden { display: none; }
+
 .location__nearby li {
-  display: flex;
-  justify-content: space-between;
   padding: var(--space-3) 0;
   border-bottom: 1px solid var(--color-border);
   font-size: var(--text-sm);
-}
-
-.location__nearby li span:last-child {
-  color: var(--color-text-muted);
-  font-weight: 500;
 }
 
 .location__actions {
@@ -1433,6 +1435,8 @@ body.menu-open .header {
   flex-wrap: wrap;
   gap: var(--space-3);
   align-items: center;
+  margin-top: auto;
+  padding-top: var(--space-6);
 }
 
 .btn--uber {

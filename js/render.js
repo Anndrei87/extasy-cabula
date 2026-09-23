@@ -509,10 +509,17 @@ const Render = {
     `;
 
     const nearby = document.getElementById('location-nearby');
-    if (nearby && location.nearby?.length) {
-      nearby.innerHTML = location.nearby.map((p) => `
-        <li><span>${p.name}</span><span>${p.distance}</span></li>
-      `).join('');
+    if (nearby) {
+      const places = (location.nearby || []).filter((p) => p?.name);
+      if (places.length) {
+        nearby.innerHTML = places.map((p) => `
+          <li><span>${p.name}</span></li>
+        `).join('');
+        nearby.classList.remove('hidden');
+      } else {
+        nearby.innerHTML = '';
+        nearby.classList.add('hidden');
+      }
     }
 
     const directions = document.getElementById('location-directions');

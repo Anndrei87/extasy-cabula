@@ -330,31 +330,15 @@
     "enabled": true,
     "title": "Localização",
     "description": "Na Estrada das Barreiras, Cabula — Salvador/BA. Fácil acesso e localização estratégica.",
-    "lat": -12.9665,
-    "lng": -38.4768,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Estrada+das+Barreiras+516+Cabula+Salvador+BA",
+    "lat": -12.9481283,
+    "lng": -38.4612216,
+    "googleMapsUrl": "https://www.google.com/maps/place/Hotel+Extasy+Cabula/@-12.9481283,-38.4612216,17z/data=!3m1!4b1!4m9!3m8!1s0x7161a9686fcfbad:0x597eac2918dec05c!5m2!4m1!1i2!8m2!3d-12.9481283!4d-38.4612216!16s%2Fg%2F1ptwyhgk5?entry=ttu",
     "uber": {
       "enabled": true,
       "label": "Ir de Uber",
       "address": "Estrada das Barreiras, 516 - Cabula, Salvador - BA"
     },
-    "nearby": [
-      {
-        "name": "Cabula",
-        "distance": "no bairro",
-        "icon": "map"
-      },
-      {
-        "name": "Estrada das Barreiras",
-        "distance": "na via",
-        "icon": "map"
-      },
-      {
-        "name": "Centro de Salvador",
-        "distance": "região",
-        "icon": "map"
-      }
-    ]
+    "nearby": []
   },
   "reviews": {
     "enabled": false,
