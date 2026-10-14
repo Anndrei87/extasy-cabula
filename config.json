@@ -379,6 +379,13 @@
     "primaryCta": "Reservar agora",
     "showPhone": true
   },
+  "websiteApi": {
+    "enabled": true,
+    "url": "https://tapirapi-gcacg8dve2hmd9a2.southcentralus-01.azurewebsites.net/api/v1/WebSite",
+    "apiKey": "2AB1C5BD-9248-4D50-8CDE-ABC76EC5810A",
+    "headerName": "x-api-key",
+    "timeoutMs": 15000
+  },
   "booking": {
     "enabled": true,
     "url": "https://www.tapirbooking.com.br/extasycabula/",

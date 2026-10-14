@@ -20,6 +20,15 @@ hotels/extasy-cabula/
 
 `configs/extasy-cabula.json`
 
+API WebSite (chave deste hotel):
+
+```json
+"websiteApi": {
+  "enabled": true,
+  "apiKey": "…"
+}
+```
+
 ## Contato
 
 - Telefone / WhatsApp: (71) 3387-0373

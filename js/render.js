@@ -285,8 +285,15 @@ const Render = {
     if (titleEl && roomsSection?.title) titleEl.textContent = roomsSection.title;
     if (subtitleEl && roomsSection?.subtitle) subtitleEl.textContent = roomsSection.subtitle;
 
+    const fallbackPhoto = 'data:image/svg+xml,' + encodeURIComponent(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+        <rect fill="#e8e4ec" width="800" height="500"/>
+        <text x="400" y="250" text-anchor="middle" fill="#8a7a90" font-family="system-ui,sans-serif" font-size="22">Sem foto</text>
+      </svg>`
+    );
+
     grid.innerHTML = rooms.map((room) => {
-      const photo = room.photos?.[0] || 'assets/images/placeholder-room.jpg';
+      const photo = room.photos?.[0] || fallbackPhoto;
       const priceHTML = room.priceFrom
         ? `<div class="room-card__price">
             <span class="room-card__price-label">${room.priceLabel || 'a partir de'}</span>
@@ -294,28 +301,37 @@ const Render = {
           </div>`
         : `<div class="room-card__price-consult">${room.priceLabel || 'Consulte valores'}</div>`;
 
-      const amenities = (room.amenities || []).slice(0, 5)
-        .map((a) => `<span class="room-card__amenity">${a}</span>`).join('');
+      const amenityItems = (room.amenities || []).filter(Boolean).slice(0, 5);
+      const amenitiesHTML = amenityItems.length
+        ? `<div class="room-card__amenities">${amenityItems
+            .map((a) => `<span class="room-card__amenity">${a}</span>`)
+            .join('')}</div>`
+        : '';
 
       const capacity = room.capacity
         ? `${room.capacity.adults} adulto(s)${room.capacity.children ? ` · ${room.capacity.children} criança(s)` : ''}`
         : '';
 
-      const fallbackPhoto = 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800&h=500&fit=crop&q=80';
+      const desc = room.description || '';
+      const bedType = room.bedType || 'Casal';
+      const metaParts = [
+        `<span>${bedType}</span>`,
+        capacity ? `<span>${capacity}</span>` : '',
+        room.sizeM2 ? `<span>${room.sizeM2}m²</span>` : '',
+      ].filter(Boolean);
+      const metaHTML = metaParts.length
+        ? `<div class="room-card__meta">${metaParts.join('')}</div>`
+        : '';
 
       return `
-        <article class="room-card">
+        <article class="room-card${amenityItems.length ? '' : ' room-card--no-amenities'}">
           <img src="${photo}" alt="${room.name}" class="room-card__image" loading="lazy"
                onerror="this.onerror=null;this.src='${fallbackPhoto}'">
           <div class="room-card__body">
             <h3 class="room-card__name">${room.name}</h3>
-            <p class="room-card__desc">${room.description || ''}</p>
-            <div class="room-card__meta">
-              ${room.bedType ? `<span>${room.bedType}</span>` : ''}
-              ${capacity ? `<span>${capacity}</span>` : ''}
-              ${room.sizeM2 ? `<span>${room.sizeM2}m²</span>` : ''}
-            </div>
-            <div class="room-card__amenities">${amenities}</div>
+            ${desc ? `<p class="room-card__desc">${desc}</p>` : ''}
+            ${metaHTML}
+            ${amenitiesHTML}
             <div class="room-card__footer">
               ${priceHTML}
               ${this.renderBookingCta({
@@ -554,16 +570,53 @@ const Render = {
     }
 
     const mapEl = document.getElementById('location-map');
-    if (mapEl && location.lat && location.lng) {
-      mapEl.innerHTML = `
-        <iframe
-          src="https://maps.google.com/maps?q=${location.lat},${location.lng}&z=15&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Mapa - ${hotel.name}">
-        </iframe>
-      `;
+    if (mapEl) {
+      const embedQuery = this.getMapEmbedQuery(location, hotel);
+      if (embedQuery) {
+        mapEl.innerHTML = `
+          <iframe
+            src="https://maps.google.com/maps?q=${encodeURIComponent(embedQuery)}&z=15&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa - ${hotel.name}">
+          </iframe>
+        `;
+        mapEl.classList.remove('location__map--empty');
+      } else {
+        mapEl.innerHTML = '';
+        mapEl.classList.add('location__map--empty');
+      }
     }
+  },
+
+  /**
+   * Query para o iframe do Maps: coordenadas, senão endereço / googleMapsUrl.
+   * A API às vezes envia lat/lng null e só o endereço.
+   */
+  getMapEmbedQuery(location, hotel) {
+    const lat = location?.lat;
+    const lng = location?.lng;
+    if (lat != null && lng != null && Number.isFinite(Number(lat)) && Number.isFinite(Number(lng))) {
+      return `${lat},${lng}`;
+    }
+
+    const fromUrl = location?.googleMapsUrl;
+    if (fromUrl) {
+      try {
+        const u = new URL(fromUrl);
+        const q = u.searchParams.get('query') || u.searchParams.get('q');
+        if (q) return q;
+      } catch (_) { /* ignore */ }
+    }
+
+    const parts = [
+      hotel?.name,
+      hotel?.address,
+      hotel?.neighborhood,
+      hotel?.city,
+      hotel?.state,
+    ].filter(Boolean);
+    return parts.length ? parts.join(', ') : '';
   },
 
   buildUberUrl({ lat, lng, name, address }) {

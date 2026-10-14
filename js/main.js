@@ -3,7 +3,10 @@
  */
 
 (function () {
-  async function loadConfig() {
+  const loaderEl = () => document.getElementById('page-loader');
+  const errorEl = () => document.getElementById('page-error');
+
+  async function loadBootstrapConfig() {
     // 1. Config injetada no build ou no servidor de dev
     if (window.HOTEL_CONFIG) return window.HOTEL_CONFIG;
 
@@ -25,6 +28,46 @@
       console.error('[Tapir LP]', err.message);
       return null;
     }
+  }
+
+  function setBootState(state) {
+    const body = document.body;
+    body.classList.remove('is-booting', 'is-ready', 'is-error');
+    body.classList.add(state);
+
+    const loader = loaderEl();
+    const error = errorEl();
+
+    if (state === 'is-booting') {
+      loader?.classList.remove('hidden');
+      loader?.setAttribute('aria-busy', 'true');
+      error?.classList.add('hidden');
+      return;
+    }
+
+    if (state === 'is-error') {
+      loader?.classList.add('hidden');
+      loader?.setAttribute('aria-busy', 'false');
+      error?.classList.remove('hidden');
+      return;
+    }
+
+    // is-ready
+    loader?.classList.add('is-leaving');
+    loader?.setAttribute('aria-busy', 'false');
+    error?.classList.add('hidden');
+    window.setTimeout(() => {
+      loader?.classList.add('hidden');
+      loader?.classList.remove('is-leaving');
+    }, 420);
+  }
+
+  function showLoadError() {
+    setBootState('is-error');
+  }
+
+  function revealPage() {
+    setBootState('is-ready');
   }
 
   function initUI(config) {
@@ -113,17 +156,9 @@
         lightbox.setAttribute('aria-hidden', 'true');
       }
     });
-
-    // Sticky bar desativado — apenas botão flutuante
   }
 
-  async function boot() {
-    const config = await loadConfig();
-    if (!config) {
-      document.body.innerHTML = '<p style="padding:2rem;text-align:center">Erro ao carregar configuração do hotel.</p>';
-      return;
-    }
-
+  function mountApp(config) {
     window.HOTEL_CONFIG = config;
 
     Render.init(config);
@@ -136,7 +171,41 @@
     // Re-bind após render dinâmico
     WhatsApp.init(config);
     TapirBooking.init(config);
+
+    revealPage();
   }
+
+  async function resolveConfig(bootstrap) {
+    if (window.WebsiteApi?.isEnabled(bootstrap)) {
+      return window.WebsiteApi.fetchConfig(bootstrap);
+    }
+    return bootstrap;
+  }
+
+  async function boot() {
+    setBootState('is-booting');
+
+    const bootstrap = await loadBootstrapConfig();
+    if (!bootstrap) {
+      showLoadError();
+      return;
+    }
+
+    try {
+      const config = await resolveConfig(bootstrap);
+      if (!config?.hotel) {
+        throw new Error('Config sem dados do hotel');
+      }
+      mountApp(config);
+    } catch (err) {
+      console.error('[Tapir LP] Falha ao carregar hotel:', err);
+      showLoadError();
+    }
+  }
+
+  document.getElementById('page-error-retry')?.addEventListener('click', () => {
+    boot();
+  });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
