@@ -121,7 +121,19 @@ const Render = {
     if (seo?.ogImage) this.setMeta('og:image', seo.ogImage, 'property');
 
     const favicon = document.querySelector('link[rel="icon"]');
-    if (favicon && this.hasLogo(hotel.favicon)) favicon.href = hotel.favicon;
+    // Prefer favicon; se vazio, cai na logo
+    const faviconHref = this.hasLogo(hotel.favicon) ? hotel.favicon : hotel.logo;
+    if (favicon && this.hasLogo(faviconHref)) {
+      favicon.href = faviconHref;
+      const lower = faviconHref.split('?')[0].toLowerCase();
+      favicon.type = lower.endsWith('.svg')
+        ? 'image/svg+xml'
+        : lower.endsWith('.png')
+          ? 'image/png'
+          : lower.endsWith('.ico')
+            ? 'image/x-icon'
+            : 'image/png';
+    }
 
     document.documentElement.lang = this.config.meta?.language || 'pt-BR';
   },

@@ -175,9 +175,26 @@
     revealPage();
   }
 
+  /**
+   * Se a API não enviar favicon, usa o do config local (ex.: Cabula → assets/images/favicon.png).
+   */
+  function applyLocalFaviconFallback(apiConfig, bootstrap) {
+    if (!apiConfig?.hotel) return apiConfig;
+    const apiFavicon = apiConfig.hotel.favicon;
+    const localFavicon = bootstrap?.hotel?.favicon;
+    const hasApi = typeof apiFavicon === 'string' && apiFavicon.trim().length > 0;
+    const hasLocal = typeof localFavicon === 'string' && localFavicon.trim().length > 0;
+    if (hasApi || !hasLocal) return apiConfig;
+    return {
+      ...apiConfig,
+      hotel: { ...apiConfig.hotel, favicon: localFavicon },
+    };
+  }
+
   async function resolveConfig(bootstrap) {
     if (window.WebsiteApi?.isEnabled(bootstrap)) {
-      return window.WebsiteApi.fetchConfig(bootstrap);
+      const fromApi = await window.WebsiteApi.fetchConfig(bootstrap);
+      return applyLocalFaviconFallback(fromApi, bootstrap);
     }
     return bootstrap;
   }
